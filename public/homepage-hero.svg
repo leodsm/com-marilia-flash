@@ -1,0 +1,91 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient with blue, white and coral tones -->
+    <linearGradient id="bg" x1="0" y1="0" x2="1920" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6EC1E4"/>
+      <stop offset="60%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FF8C7A"/>
+    </linearGradient>
+
+    <!-- Subtle paper texture using noise pattern -->
+    <filter id="noise" x="0" y="0">
+      <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0
+                                           0 0 0 0 0
+                                           0 0 0 0 0
+                                           0 0 0 -0.5 1"/>
+    </filter>
+
+    <!-- Drop shadow for floating cards -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="rgba(0,0,0,0.2)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" filter="url(#noise)" opacity="0.03"/>
+
+  <!-- Symbolic building silhouette of Marília -->
+  <g opacity="0.15" fill="#FFFFFF">
+    <rect x="1500" y="600" width="80" height="260"/>
+    <rect x="1585" y="550" width="60" height="310"/>
+    <rect x="1655" y="620" width="70" height="240"/>
+    <rect x="1730" y="580" width="50" height="280"/>
+    <rect x="1450" y="660" width="40" height="220"/>
+  </g>
+
+  <!-- Floating story cards -->
+  <g filter="url(#shadow)">
+    <!-- Card 1 -->
+    <g transform="translate(180 220) rotate(-6)">
+      <rect width="280" height="180" rx="16" fill="#FFFFFF"/>
+      <circle cx="56" cy="56" r="32" fill="#FF8C7A"/>
+      <rect x="104" y="36" width="140" height="16" rx="8" fill="#6EC1E4"/>
+      <rect x="104" y="64" width="100" height="12" rx="6" fill="#E4E4E4"/>
+      <!-- share icon -->
+      <path d="M216 130c-10 0-18 8-18 18s8 18 18 18 18-8 18-18-8-18-18-18zm-4 20l8-8 8 8" stroke="#FF8C7A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </g>
+
+    <!-- Card 2 with play icon -->
+    <g transform="translate(760 140) rotate(4)">
+      <rect width="260" height="160" rx="16" fill="#FFFFFF"/>
+      <circle cx="48" cy="48" r="28" fill="#6EC1E4"/>
+      <polygon points="40,40 40,56 56,48" fill="#FFFFFF"/>
+      <rect x="92" y="32" width="130" height="16" rx="8" fill="#FF8C7A"/>
+      <rect x="92" y="60" width="90" height="12" rx="6" fill="#E4E4E4"/>
+      <!-- emoji -->
+      <text x="200" y="120" font-size="28" opacity="0.8">😊</text>
+    </g>
+
+    <!-- Card 3 with chat icon -->
+    <g transform="translate(1240 240) rotate(-3)">
+      <rect width="300" height="190" rx="16" fill="#FFFFFF"/>
+      <circle cx="60" cy="60" r="30" fill="#FF8C7A"/>
+      <rect x="110" y="40" width="150" height="18" rx="9" fill="#6EC1E4"/>
+      <rect x="110" y="70" width="120" height="12" rx="6" fill="#E4E4E4"/>
+      <!-- chat bubble -->
+      <path d="M210 130h60c11 0 20 9 20 20v20c0 11-9 20-20 20h-30l-20 20v-20h-10c-11 0-20-9-20-20v-20c0-11 9-20 20-20z" fill="#6EC1E4"/>
+    </g>
+  </g>
+
+  <!-- Young people with phones (simplified) -->
+  <g transform="translate(420 640)">
+    <!-- person 1 -->
+    <circle cx="0" cy="0" r="40" fill="#FF8C7A"/>
+    <rect x="-30" y="40" width="60" height="120" rx="30" fill="#6EC1E4"/>
+    <rect x="20" y="60" width="30" height="50" rx="8" fill="#FFFFFF"/>
+  </g>
+  <g transform="translate(960 620)">
+    <!-- person 2 -->
+    <circle cx="0" cy="0" r="40" fill="#6EC1E4"/>
+    <rect x="-30" y="40" width="60" height="120" rx="30" fill="#FF8C7A"/>
+    <rect x="20" y="60" width="30" height="50" rx="8" fill="#FFFFFF"/>
+  </g>
+  <g transform="translate(1500 660)">
+    <!-- person 3 -->
+    <circle cx="0" cy="0" r="40" fill="#FFCF56"/>
+    <rect x="-30" y="40" width="60" height="120" rx="30" fill="#6EC1E4"/>
+    <rect x="20" y="60" width="30" height="50" rx="8" fill="#FFFFFF"/>
+  </g>
+</svg>
