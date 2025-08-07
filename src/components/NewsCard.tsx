@@ -70,17 +70,17 @@ const NewsCard = ({
       </div>
 
       {/* Content Container */}
-      <div className={`p-4 flex flex-col justify-between ${
-        variant === 'large' ? 'md:w-3/5' : 'flex-1'
+      <div className={`p-4 flex flex-col justify-between flex-1 ${
+        variant === 'large' ? 'md:w-3/5' : ''
       }`}>
-        <div>
+        <div className="flex-1">
           <h3 className={`font-bold text-foreground mb-2 line-clamp-2 group-hover:text-primary transition-colors ${
             variant === 'large' ? 'text-lg md:text-xl' : 'text-base'
           }`}>
             {title}
           </h3>
           
-          <p className={`text-gray-warm mb-4 line-clamp-2 ${
+          <p className={`text-gray-warm mb-3 line-clamp-2 ${
             variant === 'large' ? 'text-sm md:text-base' : 'text-sm'
           }`}>
             {summary}
@@ -88,7 +88,7 @@ const NewsCard = ({
         </div>
 
         {/* Footer */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mt-auto pt-2">
           <div className="flex items-center space-x-4 text-xs text-gray-warm">
             <div className="flex items-center">
               <Clock className="w-3 h-3 mr-1" />

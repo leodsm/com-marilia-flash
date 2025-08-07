@@ -12,23 +12,27 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-card shadow-header border-b">
+    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md shadow-header border-b border-border">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between h-14 lg:h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl lg:text-3xl font-bold text-primary">
+            <h1 className="text-xl lg:text-2xl font-bold text-primary tracking-tight">
               Com<span className="text-coral">Marília</span>
             </h1>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            {menuItems.map((item) => (
+          <nav className="hidden lg:flex items-center space-x-6">
+            {menuItems.map((item, index) => (
               <a
                 key={item}
                 href="#"
-                className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  index === 0 
+                    ? 'text-coral border-b-2 border-coral pb-1' 
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
                 {item}
               </a>
@@ -40,10 +44,10 @@ const Header = () => {
             {/* Desktop Search */}
             <div className="hidden md:flex items-center relative">
               <Input
-                placeholder="Buscar notícias..."
-                className="w-64 pr-10 bg-background border-border rounded-full"
+                placeholder="Buscar..."
+                className="w-48 lg:w-64 pr-10 bg-secondary border-border rounded-full text-sm"
               />
-              <Search className="absolute right-3 h-4 w-4 text-gray-warm" />
+              <Search className="absolute right-3 h-4 w-4 text-muted-foreground" />
             </div>
 
             {/* Action Buttons */}

@@ -1,60 +1,82 @@
-import StoryCard from "./StoryCard";
-import story1 from "@/assets/story-1.jpg";
-import story2 from "@/assets/story-2.jpg";
-import story3 from "@/assets/story-3.jpg";
+import { Badge } from "@/components/ui/badge";
+import news1 from "@/assets/news-1.jpg";
+import news2 from "@/assets/news-2.jpg"; 
+import news3 from "@/assets/news-3.jpg";
 
-const StoriesSection = () => {
-  const stories = [
+const QuickStoriesSection = () => {
+  const quickStories = [
     {
       id: 1,
-      image: story1,
-      title: "Show no Centro",
-      isActive: true
+      image: news1,
+      category: "CINEMA",
+      title: "Estreia bombástica no novo complexo"
     },
     {
       id: 2,
-      image: story2,
-      title: "Festival Gastronômico"
+      image: news2,
+      category: "ESPORTES", 
+      title: "Vitória histórica do time local"
     },
     {
       id: 3,
-      image: story3,
-      title: "Evento no Parque"
+      image: news3,
+      category: "CULTURA",
+      title: "Exposição de artistas marilienses"
     },
     {
       id: 4,
-      image: story1,
-      title: "Cultura Local"
+      image: news1,
+      category: "GASTRO",
+      title: "Festival gastronômico no centro"
     },
     {
       id: 5,
-      image: story2,
-      title: "Arte Urbana"
+      image: news2,
+      category: "TECH",
+      title: "Cursos gratuitos de tecnologia"
     }
   ];
 
   return (
-    <section className="bg-background py-6 border-b">
+    <section className="bg-background py-8 border-b border-border">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold text-foreground">
-            Acontecendo Agora
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-lg font-bold text-foreground">
+            Últimas do Flash
           </h2>
-          <button className="text-sm text-primary hover:text-coral transition-colors">
-            Ver todos
+          <button className="text-sm text-coral hover:text-coral/80 transition-colors font-medium">
+            Ver todas
           </button>
         </div>
 
-        {/* Stories Scroll Container */}
-        <div className="flex space-x-4 overflow-x-auto scrollbar-hide pb-2">
-          {stories.map((story) => (
-            <StoryCard
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+          {quickStories.map((story) => (
+            <article 
               key={story.id}
-              image={story.image}
-              title={story.title}
-              isActive={story.isActive}
-            />
+              className="group cursor-pointer"
+            >
+              <div className="relative aspect-[4/5] mb-2 overflow-hidden rounded-lg">
+                <img 
+                  src={story.image} 
+                  alt={story.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                
+                <div className="absolute top-2 left-2">
+                  <Badge className="bg-coral/90 text-white text-xs px-2 py-1 rounded">
+                    {story.category}
+                  </Badge>
+                </div>
+                
+                <div className="absolute bottom-2 left-2 right-2">
+                  <h3 className="text-white text-sm font-medium line-clamp-2 group-hover:text-coral transition-colors">
+                    {story.title}
+                  </h3>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>
@@ -62,4 +84,4 @@ const StoriesSection = () => {
   );
 };
 
-export default StoriesSection;
+export default QuickStoriesSection;
