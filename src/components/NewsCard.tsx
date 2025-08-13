@@ -28,8 +28,8 @@ const NewsCard = ({
   variant = 'large'
 }: NewsCardProps) => {
   return (
-    <article 
-      className={`bg-card rounded-2xl shadow-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden group ${
+    <article
+      className={`bg-card rounded-2xl shadow-card hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden group animate-slide-up ${
         variant === 'large' ? 'md:flex md:h-48' : 'flex flex-col h-full'
       }`}
     >
@@ -39,10 +39,10 @@ const NewsCard = ({
           ? 'h-48 md:h-full md:w-2/5 flex-shrink-0' 
           : 'h-40 w-full'
       }`}>
-        <img 
-          src={image} 
+        <img
+          src={image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          className="w-full h-full object-cover bg-white group-hover:scale-105 transition-transform duration-500"
         />
         
         {/* Badges Overlay */}
