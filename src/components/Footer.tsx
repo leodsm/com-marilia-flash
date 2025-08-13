@@ -23,10 +23,11 @@ const Footer = () => {
     {
       title: "Seções",
       links: [
-        { name: "Notícias", href: "#" },
-        { name: "Cultura Pop", href: "#" },
-        { name: "Comunidade", href: "#" },
-        { name: "Curiosidades", href: "#" }
+        { name: "Marília", href: "#" },
+        { name: "Região", href: "#" },
+        { name: "Brasil", href: "#" },
+        { name: "Mundo", href: "#" },
+        { name: "Entretenimento", href: "#" }
       ]
     },
     {

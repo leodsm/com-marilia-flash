@@ -7,7 +7,7 @@ const HeroSection = () => {
     {
       id: 1,
       image: heroImage,
-      category: "ENTRETENIMENTO",
+      category: "MARÍLIA",
       title: "Quem é o responsável pelos eventos mais aguardados de Marília?",
       subtitle: "Conheça os bastidores da produção cultural da cidade",
       isMain: true
@@ -15,14 +15,14 @@ const HeroSection = () => {
     {
       id: 2,
       image: heroImage,
-      category: "CULTURA POP",
+      category: "REGIÃO",
       title: "Festival de música movimenta o centro da cidade",
       subtitle: "Três dias de shows gratuitos agitam Marília"
     },
     {
       id: 3,
       image: heroImage,
-      category: "COMUNIDADE",
+      category: "BRASIL",
       title: "Projeto social transforma vidas na periferia",
       subtitle: "Iniciativa oferece cursos e oportunidades para jovens"
     }
@@ -34,7 +34,7 @@ const HeroSection = () => {
         {/* Navigation Pills */}
         <div className="flex justify-center mb-8">
           <div className="flex bg-secondary rounded-full p-1 space-x-1">
-            {["Tudo", "Entretenimento", "Cultura", "Comunidade", "Esportes"].map((item, index) => (
+            {["Marília", "Região", "Brasil", "Mundo", "Entretenimento"].map((item, index) => (
               <button
                 key={item}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
@@ -54,10 +54,10 @@ const HeroSection = () => {
           <div className="relative bg-card rounded-2xl overflow-hidden shadow-card">
             {/* Main Story */}
             <div className="relative h-96 lg:h-[500px]">
-              <img 
-                src={stories[0].image} 
+              <img
+                src={stories[0].image}
                 alt={stories[0].title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover bg-white"
               />
               
               {/* Overlay Content */}

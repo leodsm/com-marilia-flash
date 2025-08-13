@@ -1,15 +1,21 @@
 import { Search, Menu, User, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useGoogleLogin } from "@react-oauth/google";
 
 const Header = () => {
   const menuItems = [
-    "Notícias",
-    "Comunidade", 
-    "Cultura Pop",
-    "Curiosidades",
-    "Contato"
+    "Marília",
+    "Região",
+    "Brasil",
+    "Mundo",
+    "Entretenimento"
   ];
+
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => console.log(tokenResponse),
+    onError: () => console.log("Login Failed"),
+  });
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md shadow-header border-b border-border">
@@ -55,7 +61,12 @@ const Header = () => {
               <Bell className="h-4 w-4" />
             </Button>
             
-            <Button size="sm" variant="outline" className="hidden md:flex">
+            <Button
+              size="sm"
+              variant="outline"
+              className="hidden md:flex"
+              onClick={() => login()}
+            >
               <User className="h-4 w-4 mr-2" />
               Entrar
             </Button>
