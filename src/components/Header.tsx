@@ -2,6 +2,7 @@ import { Search, Menu, User, Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useGoogleLogin } from "@react-oauth/google";
+import { useState } from "react";
 
 const Header = () => {
   const menuItems = [
@@ -12,8 +13,27 @@ const Header = () => {
     "Entretenimento"
   ];
 
+  interface UserInfo {
+    name: string;
+    picture: string;
+  }
+
+  const [user, setUser] = useState<UserInfo | null>(null);
+
   const login = useGoogleLogin({
-    onSuccess: (tokenResponse) => console.log(tokenResponse),
+    onSuccess: async (tokenResponse) => {
+      try {
+        const res = await fetch("https://www.googleapis.com/oauth2/v3/userinfo", {
+          headers: {
+            Authorization: `Bearer ${tokenResponse.access_token}`,
+          },
+        });
+        const profile = await res.json();
+        setUser(profile);
+      } catch (err) {
+        console.error(err);
+      }
+    },
     onError: () => console.log("Login Failed"),
   });
 
@@ -61,15 +81,23 @@ const Header = () => {
               <Bell className="h-4 w-4" />
             </Button>
             
-            <Button
-              size="sm"
-              variant="outline"
-              className="hidden md:flex"
-              onClick={() => login()}
-            >
-              <User className="h-4 w-4 mr-2" />
-              Entrar
-            </Button>
+              {user ? (
+                <img
+                  src={user.picture}
+                  alt={user.name}
+                  className="w-8 h-8 rounded-full hidden md:block"
+                />
+              ) : (
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="hidden md:flex"
+                  onClick={() => login()}
+                >
+                  <User className="h-4 w-4 mr-2" />
+                  Entrar
+                </Button>
+              )}
 
             {/* Mobile Search */}
             <Button size="sm" variant="ghost" className="md:hidden">
